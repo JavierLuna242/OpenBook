@@ -1,0 +1,98 @@
+:root {
+    /* Design System Colors */
+    --primary: #2563EB;
+    --primary-dark: #1E40AF;
+    --primary-container: #2563EB;
+    --on-primary: #ffffff;
+    --on-primary-container: #ffffff;
+    --secondary: #14B8A6;
+    --secondary-container: #14B8A6;
+    --on-secondary: #ffffff;
+    --on-secondary-container: #ffffff;
+    
+    --surface: #F8FAFC;
+    --surface-container-low: #F8FAFC;
+    --surface-container: #F1F5F9;
+    --surface-container-high: #E2E8F0;
+    --surface-container-highest: #CBD5E1;
+    --surface-container-lowest: #ffffff;
+    --surface-variant: #E2E8F0;
+    --surface-bright: #F8FAFC;
+    --surface-dim: #CBD5E1;
+    
+    --on-surface: #0F172A;
+    --on-surface-variant: #64748B;
+    
+    --outline: #E2E8F0;
+    --outline-variant: #E2E8F0;
+
+    --error: #DC2626;
+    --on-error: #ffffff;
+    --error-container: #FEE2E2;
+    --on-error-container: #991B1B;
+    
+    --success: #16A34A;
+    --warning: #F59E0B;
+    --danger: #DC2626;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+/* Global Styles */
+body {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+.card-editorial {
+    background: var(--surface-container-lowest);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-editorial:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 20px 40px rgba(26, 28, 28, 0.06);
+}
+
+.btn-prestige {
+    background-color: var(--primary-container);
+    color: var(--on-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-prestige:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.02);
+    color: white;
+}
+
+.chip-mentor {
+    background-color: rgba(20, 184, 166, 0.1);
+    color: #14B8A6;
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}

@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+
+    /* Design System Colors */
+    --color-primary: #2563EB;
+    --color-primary-dark: #1E40AF;
+    --color-primary-container: #2563EB;
+    --color-on-primary: #ffffff;
+    --color-on-primary-container: #ffffff;
+    --color-secondary: #14B8A6;
+    --color-secondary-container: #14B8A6;
+    --color-on-secondary: #ffffff;
+    --color-on-secondary-container: #ffffff;
+    
+    --color-surface: #F8FAFC;
+    --color-surface-container-low: #F8FAFC;
+    --color-surface-container: #F1F5F9;
+    --color-surface-container-high: #E2E8F0;
+    --color-surface-container-highest: #CBD5E1;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-variant: #E2E8F0;
+    --color-surface-bright: #F8FAFC;
+    --color-surface-dim: #CBD5E1;
+    
+    --color-on-surface: #0F172A;
+    --color-on-surface-variant: #64748B;
+    
+    --color-outline: #E2E8F0;
+    --color-outline-variant: #E2E8F0;
+
+    --color-error: #DC2626;
+    --color-on-error: #ffffff;
+    --color-error-container: #FEE2E2;
+    --color-on-error-container: #991B1B;
+
+    --color-success: #16A34A;
+    --color-warning: #F59E0B;
+    --color-danger: #DC2626;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, #2563EB 0%, #14B8A6 100%);
+}
+
+/* Global Styles based on Design System */
+body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+.card-editorial {
+    background: var(--color-surface-container-lowest);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-editorial:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 20px 40px rgba(26, 28, 28, 0.06);
+}
+
+.btn-prestige {
+    background-color: var(--color-primary-container);
+    color: var(--color-on-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-prestige:hover {
+    background-color: var(--color-primary-dark);
+    transform: scale(1.02);
+}
+
+.chip-mentor {
+    background-color: rgba(20, 184, 166, 0.1);
+    color: #14B8A6;
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
