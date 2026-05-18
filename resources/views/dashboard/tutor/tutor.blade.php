@@ -225,7 +225,7 @@
                                     Consejos para Tutorías Exitosas
                                 </h4>
                                 <p class="text-white/90 text-sm md:text-base leading-relaxed mb-8 font-medium">
-                                    Prepárate para guiar a tus compañeros con las mejores herramientas interactivas, como pizarras digitales integradas y material didáctico dinámico.
+                                    Prepárate para guiar a los estudiantes de la UNAB con las mejores herramientas interactivas, como pizarras digitales integradas y material didáctico dinámico.
                                 </p>
                                 <a href="{{ route('dashboard.tutor.post') }}" class="inline-flex justify-center items-center bg-white text-secondary font-black px-8 py-3.5 rounded-2xl text-sm hover:bg-primary hover:text-white hover:shadow-lg transition-all transform hover:-translate-y-0.5">
                                     Ofrecer Nueva Tutoría
