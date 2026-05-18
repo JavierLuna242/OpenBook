@@ -64,7 +64,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('login') }}" method="POST" class="space-y-6" novalidate>
+                <form action="{{ route('login.student') }}" method="POST" class="space-y-6" novalidate>
                     @csrf
                     <div>
                         <label for="email" class="block text-sm font-bold text-on-surface mb-2 tracking-tight uppercase">Correo Institucional</label>

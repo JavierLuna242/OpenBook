@@ -51,7 +51,7 @@
                     <p class="text-on-surface-variant">Crea tu cuenta institucional para comenzar a agendar tutorías.</p>
                 </div>
 
-                <form action="{{ route('register') }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate>
+                <form action="{{ route('register.student') }}" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6" novalidate>
                     @csrf
                     <!-- Global Fields -->
                     <div class="col-span-2">
