@@ -17,9 +17,9 @@
                             <span class="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mt-1">La Academia Digital</span>
                         </div>
                     </a>
-                    <h2 class="text-4xl font-extrabold mb-6 leading-tight">Accede a tus Tutorías Académicas</h2>
+                    <h2 class="text-4xl font-extrabold mb-6 leading-tight">Conecta con tu Tutor Ideal</h2>
                     <p class="text-lg text-white/90 mb-8 leading-relaxed">
-                        Conéctate con mentores especializados de la UNAB de forma 100% gratuita y colaborativa.
+                        Inicia sesión para seguir explorando cursos, agendar nuevas clases y recibir la ayuda que necesitas para tus exámenes y trabajos.
                     </p>
                     
                     <div class="space-y-6">

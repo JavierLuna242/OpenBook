@@ -127,7 +127,7 @@
                             <div class="flex justify-between items-start">
                                 <div>
                                     <span class="px-3.5 py-1 rounded-full bg-success/15 text-success text-xs font-extrabold uppercase tracking-widest border border-success/20">
-                                        100% {{ __('messages.price_free') }}
+                                        {{ __('messages.price_free') }}
                                     </span>
                                     <h3 class="text-2xl font-bold text-on-surface mt-3">Calculo Integral</h3>
                                     <p class="text-primary font-medium text-sm">Ej. Integración por Partes & Sustitución</p>
@@ -251,7 +251,7 @@
                     
                     <div class="flex items-center gap-2 mb-6">
                         <span class="px-3 py-1 rounded-full bg-primary/5 text-primary text-xs font-bold border border-primary/10">Cálculo Integral</span>
-                        <span class="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold border border-success/20">Gratis</span>
+                        <span class="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold border border-success/20">Voluntariado</span>
                     </div>
 
                     <p class="text-sm text-on-surface-variant leading-relaxed mb-8">
@@ -277,7 +277,7 @@
                     
                     <div class="flex items-center gap-2 mb-6">
                         <span class="px-3 py-1 rounded-full bg-primary/5 text-primary text-xs font-bold border border-primary/10">Bases de Datos</span>
-                        <span class="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold border border-success/20">Gratis</span>
+                        <span class="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold border border-success/20">Voluntariado</span>
                     </div>
 
                     <p class="text-sm text-on-surface-variant leading-relaxed mb-8">
@@ -303,7 +303,7 @@
                     
                     <div class="flex items-center gap-2 mb-6">
                         <span class="px-3 py-1 rounded-full bg-primary/5 text-primary text-xs font-bold border border-primary/10">Física Mecánica</span>
-                        <span class="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold border border-success/20">Gratis</span>
+                        <span class="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold border border-success/20">Voluntariado</span>
                     </div>
 
                     <p class="text-sm text-on-surface-variant leading-relaxed mb-8">

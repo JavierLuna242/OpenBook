@@ -19,9 +19,9 @@
                     </a>
 
                     <div>
-                        <h2 class="text-4xl font-extrabold mb-6 leading-tight">Únete como Estudiante</h2>
+                        <h2 class="text-4xl font-extrabold mb-6 leading-tight">Encuentra la ayuda académica que necesitas</h2>
                         <p class="text-lg text-white/90 mb-8 leading-relaxed">
-                            Forma parte de la red de tutorías académicas más grande de la UNAB. Regístrate gratis en menos de un minuto.
+                            Regístrate gratis para buscar cursos y tutorías personalizadas en aquellas materias que más se te complican.
                         </p>
                     </div>
 

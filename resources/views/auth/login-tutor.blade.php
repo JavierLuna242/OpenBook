@@ -17,9 +17,9 @@
                             <span class="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mt-1">La Academia Digital</span>
                         </div>
                     </a>
-                    <h2 class="text-4xl font-extrabold mb-6 leading-tight">Comparte tu Conocimiento como Mentor</h2>
+                    <h2 class="text-4xl font-extrabold mb-6 leading-tight">Gestiona tus Clases y Horarios</h2>
                     <p class="text-lg text-white/90 mb-8 leading-relaxed">
-                        Gestiona tus tutorías ofrecidas, organiza tus horarios y ayuda a otros estudiantes UNAB a lograr la excelencia académica.
+                        Inicia sesión para revisar tu calendario de trabajo, ajustar tu disponibilidad y preparar tus próximas sesiones con los estudiantes.
                     </p>
                     
                     <div class="space-y-6">

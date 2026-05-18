@@ -31,7 +31,7 @@
 
     <div class="py-8" x-data="{
         selectedTime: '',
-        price: {{ $tutoring->price }},
+
         date: '',
         getTimeDisplay() {
             if (!this.selectedTime) return '{{ __('messages.book_none_selected') }}';
@@ -181,10 +181,7 @@
                                             <span class="text-on-surface-variant">{{ __('messages.book_sum_block') }}</span>
                                             <span class="font-bold text-primary" x-text="getTimeDisplay()"></span>
                                         </div>
-                                        <div class="flex justify-between items-center pt-2">
-                                            <span class="text-lg font-bold text-on-surface">{{ __('messages.book_sum_total') }}</span>
-                                            <span class="text-2xl font-extrabold text-primary-container">${{ number_format($tutoring->price, 0, ',', '.') }}</span>
-                                        </div>
+
                                     </div>
 
                                     <button type="submit" 

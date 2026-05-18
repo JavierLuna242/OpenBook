@@ -25,11 +25,7 @@
                             <div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
                                 Tutorías Dadas</div>
                         </x-card>
-                        <x-card class="!p-5 text-center border border-green-500/30 bg-green-500/5">
-                            <div class="text-3xl font-bold text-green-600 mb-1">Gratis</div>
-                            <div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                                Costo de Servicio</div>
-                        </x-card>
+
                     </div>
 
                     <!-- Actividades Recientes -->
@@ -49,7 +45,7 @@
                                         <th class="px-6 py-4">{{ __('messages.history_col_type') }}</th>
                                         <th class="px-6 py-4">{{ __('messages.history_col_title') }}</th>
                                         <th class="px-6 py-4 text-center">{{ __('messages.history_col_status') }}</th>
-                                        <th class="px-6 py-4 text-right">Costo</th>
+
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-outline-variant/10">
@@ -70,8 +66,7 @@
                                                 <span
                                                     class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">{{ __('messages.tutor_hist_paid') }}</span>
                                             </td>
-                                            <td class="px-6 py-4 text-right font-bold text-success">
-                                                {{ __('messages.price_free') }}</td>
+
                                         </tr>
                                     @endforeach
 

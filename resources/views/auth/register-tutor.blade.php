@@ -19,10 +19,10 @@
                     </a>
 
                     <div>
-                        <h2 class="text-4xl font-extrabold mb-6 leading-tight">Comparte tu Talento como Mentor</h2>
+                        <h2 class="text-4xl font-extrabold mb-6 leading-tight">Ofrece tus Clases como Tutor</h2>
                         <p class="text-lg text-white/90 mb-8 leading-relaxed">
-                            Crea tu perfil de tutor y ayuda a otros alumnos en sus asignaturas más complejas. Construyamos juntos el futuro académico.
-                        </p>
+                        Crea tu perfil como profesor, configura tus propios horarios de trabajo, define tu disponibilidad y empieza a dictar tutorías.
+                    </p>
                     </div>
 
                     <div class="space-y-6">
