@@ -14,13 +14,14 @@
                         <x-card class="!p-5 text-center">
                             <div class="text-3xl font-bold text-primary mb-1">{{ $takenTutorings->count() }}</div>
                             <div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                                Tutorías Tomadas</div>
+                                {{ __('messages.history_stat_taken_tutorings') }}</div>
                         </x-card>
 
                         <x-card class="!p-5 text-center border border-green-500/30 bg-green-500/5">
-                            <div class="text-3xl font-bold text-green-600 mb-1">Activo</div>
+                            <div class="text-3xl font-bold text-green-600 mb-1">
+                                {{ __('messages.history_stat_account_status') }}</div>
                             <div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                                Estado de Cuenta</div>
+                                {{ __('messages.history_stat_account_balance') }}</div>
                         </x-card>
                     </div>
 
@@ -54,9 +55,12 @@
                                                     class="text-xs font-bold text-blue-600 uppercase tracking-tighter">{{ __('messages.history_type_tutoring') }}</span>
                                             </td>
                                             <td class="px-6 py-4">
-                                                <div class="font-bold text-on-surface">{{ $booking->tutoring->subject }}</div>
+                                                <div class="font-bold text-on-surface">
+                                                    {{ $booking->tutoring->subject }}</div>
                                                 <div class="text-xs text-on-surface-variant">
-                                                    {{ __('messages.pay_tutor') }}: {{ $booking->tutoring->user->name ?? __('messages.dash_anon') }}</div>
+                                                    {{ __('messages.pay_tutor') }}:
+                                                    {{ $booking->tutoring->user->name ?? __('messages.dash_anon') }}
+                                                </div>
                                             </td>
                                             <td class="px-6 py-4 text-center">
                                                 <span
@@ -65,7 +69,7 @@
 
                                         </tr>
                                     @endforeach
-                                    
+
                                     @if ($takenTutorings->isEmpty())
                                         <tr>
                                             <td colspan="5"

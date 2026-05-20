@@ -9,7 +9,8 @@
                 <!-- Main Content -->
                 <div class="flex-1">
                     <div class="mb-10">
-                        <h1 class="text-3xl font-extrabold text-on-surface mb-2">{{ __('messages.tutor_hist_title') }}</h1>
+                        <h1 class="text-3xl font-extrabold text-on-surface mb-2">{{ __('messages.tutor_hist_title') }}
+                        </h1>
                         <p class="text-on-surface-variant text-lg">{{ __('messages.tutor_hist_subtitle') }}</p>
                     </div>
 
@@ -23,7 +24,7 @@
                         <x-card class="!p-5 text-center">
                             <div class="text-3xl font-bold text-secondary mb-1">{{ $completedBookings->count() }}</div>
                             <div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                                Tutorías Dadas</div>
+                                {{ __('messages.tutor_hist_tutorings_given') }}</div>
                         </x-card>
 
                     </div>
@@ -58,9 +59,11 @@
                                                     class="text-xs font-bold text-blue-600 uppercase tracking-tighter">{{ __('messages.history_type_tutoring') }}</span>
                                             </td>
                                             <td class="px-6 py-4">
-                                                <div class="font-bold text-on-surface">{{ $booking->tutoring->subject }}</div>
+                                                <div class="font-bold text-on-surface">
+                                                    {{ $booking->tutoring->subject }}</div>
                                                 <div class="text-xs text-on-surface-variant">
-                                                    {{ __('messages.tutor_hist_student') }}: {{ $booking->student->name }}</div>
+                                                    {{ __('messages.tutor_hist_student') }}:
+                                                    {{ $booking->student->name }}</div>
                                             </td>
                                             <td class="px-6 py-4 text-center">
                                                 <span
@@ -80,15 +83,15 @@
                                     @endif
                                 </tbody>
                             </table>
-                        @if ($completedBookings->hasPages())
-                            <div class="px-6 py-4 border-t border-outline-variant/20 bg-surface-container-low/30">
-                                {{ $completedBookings->links() }}
-                            </div>
-                        @endif
-                    </div>
+                            @if ($completedBookings->hasPages())
+                                <div class="px-6 py-4 border-t border-outline-variant/20 bg-surface-container-low/30">
+                                    {{ $completedBookings->links() }}
+                                </div>
+                            @endif
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </x-app-layout>

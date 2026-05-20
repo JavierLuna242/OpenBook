@@ -47,7 +47,7 @@ class AuthController extends Controller
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return back()->withErrors(['email' => 'Esta cuenta no está registrada como Estudiante.']);
+            return back()->withErrors(['email' => __('messages.val_not_student_account')]);
         }
 
         $request->session()->regenerate();
@@ -71,7 +71,7 @@ class AuthController extends Controller
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return back()->withErrors(['email' => 'Esta cuenta no está registrada como Tutor.']);
+            return back()->withErrors(['email' => __('messages.val_not_tutor_account')]);
         }
 
         $request->session()->regenerate();

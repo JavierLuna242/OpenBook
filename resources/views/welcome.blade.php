@@ -119,7 +119,7 @@
                                 <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
                                 <div class="w-3 h-3 rounded-full bg-green-400"></div>
                             </div>
-                            <span class="text-xs font-bold text-on-surface-variant/60 uppercase tracking-widest">OpenBook Session Desk</span>
+                            <span class="text-xs font-bold text-on-surface-variant/60 uppercase tracking-widest">{{ __('messages.welcome_desk_title') }}</span>
                         </div>
                         
                         <!-- Simulated Live Session Offer Widget -->
@@ -129,8 +129,8 @@
                                     <span class="px-3.5 py-1 rounded-full bg-success/15 text-success text-xs font-extrabold uppercase tracking-widest border border-success/20">
                                         {{ __('messages.price_free') }}
                                     </span>
-                                    <h3 class="text-2xl font-bold text-on-surface mt-3">Calculo Integral</h3>
-                                    <p class="text-primary font-medium text-sm">Ej. Integración por Partes & Sustitución</p>
+                                    <h3 class="text-2xl font-bold text-on-surface mt-3">{{ __('messages.welcome_desk_subject') }}</h3>
+                                    <p class="text-primary font-medium text-sm">{{ __('messages.welcome_desk_topic') }}</p>
                                 </div>
                                 <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-lg overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Tutor Laura" class="w-full h-full object-cover">
@@ -140,22 +140,22 @@
                             <!-- Rating & Metadata -->
                             <div class="flex items-center gap-4 bg-surface-container/40 p-4 rounded-2xl border border-outline-variant/15">
                                 <div class="flex-1">
-                                    <span class="text-xs text-on-surface-variant/70 font-semibold block uppercase tracking-wider">Tutor Académico</span>
+                                    <span class="text-xs text-on-surface-variant/70 font-semibold block uppercase tracking-wider">{{ __('messages.welcome_desk_role') }}</span>
                                     <span class="font-bold text-on-surface text-base">Laura Sofia S.</span>
                                 </div>
                                 <div class="flex items-center gap-1 bg-white px-3 py-1 rounded-full shadow-sm text-sm font-bold text-yellow-500 border border-outline-variant/20">
                                     ★ 5.0
                                 </div>
                             </div>
-
+ 
                             <!-- Availability Preview -->
                             <div class="space-y-3 pt-2">
-                                <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider block">Disponibilidad Propuesta</span>
+                                <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider block">{{ __('messages.welcome_desk_avail_title') }}</span>
                                 <div class="flex gap-2">
-                                    <div class="px-4 py-2 bg-primary/5 text-primary text-xs font-bold rounded-xl border border-primary/10">Lunes (Mañana)</div>
-                                    <div class="px-4 py-2 bg-primary/5 text-primary text-xs font-bold rounded-xl border border-primary/10">Miércoles (Tarde)</div>
+                                    <div class="px-4 py-2 bg-primary/5 text-primary text-xs font-bold rounded-xl border border-primary/10">{{ __('messages.welcome_desk_avail_1') }}</div>
+                                    <div class="px-4 py-2 bg-primary/5 text-primary text-xs font-bold rounded-xl border border-primary/10">{{ __('messages.welcome_desk_avail_2') }}</div>
                                 </div>
-                            </div>
+                            </div> </div>
                             
                             <!-- Book Call to Action Simulation -->
                             <div class="pt-4">
@@ -178,7 +178,7 @@
         
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-24">
-                <span class="text-sm font-extrabold text-primary uppercase tracking-widest mb-3 block">Simple & Rápido</span>
+                <span class="text-sm font-extrabold text-primary uppercase tracking-widest mb-3 block">{{ __('messages.welcome_sub_how') }}</span>
                 <h2 class="text-4xl md:text-5xl font-black text-on-surface mb-8 tracking-tight">{{ __('messages.welcome_how_title') }}</h2>
                 <p class="text-lg text-on-surface-variant leading-relaxed">
                     {{ __('messages.welcome_how_desc') }}
@@ -229,10 +229,10 @@
     <section class="py-32 bg-surface">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div class="text-center max-w-3xl mx-auto mb-20">
-                <span class="text-sm font-extrabold text-primary uppercase tracking-widest mb-3 block">Excelencia Académica</span>
-                <h2 class="text-4xl md:text-5xl font-black text-on-surface mb-6 tracking-tight">Tutores Destacados de OpenBook</h2>
+                <span class="text-sm font-extrabold text-primary uppercase tracking-widest mb-3 block">{{ __('messages.welcome_sub_tutors') }}</span>
+                <h2 class="text-4xl md:text-5xl font-black text-on-surface mb-6 tracking-tight">{{ __('messages.welcome_tutors_title') }}</h2>
                 <p class="text-lg text-on-surface-variant leading-relaxed">
-                    Aprende de estudiantes con rendimiento superior en las materias de mayor exigencia de la facultad.
+                    {{ __('messages.welcome_tutors_desc') }}
                 </p>
             </div>
 
@@ -255,11 +255,11 @@
                     </div>
 
                     <p class="text-sm text-on-surface-variant leading-relaxed mb-8">
-                        "¡Aprende integraciones en minutos de forma práctica! Simplifico la matemática para que superes tus exámenes sin estrés."
+                        {{ __('messages.welcome_tutor1_bio') }}
                     </p>
 
                     <a href="{{ route('login') }}" class="w-full inline-flex justify-center items-center py-3 bg-surface-container hover:bg-primary hover:text-white text-on-surface font-bold rounded-xl transition-all text-sm">
-                        Agendar Tutoría
+                        {{ __('messages.welcome_book_btn') }}
                     </a>
                 </div>
 
@@ -281,11 +281,11 @@
                     </div>
 
                     <p class="text-sm text-on-surface-variant leading-relaxed mb-8">
-                        "Te ayudo a dominar Programación Orientada a Objetos, estructuras de datos y modelado de bases de datos desde cero."
+                        {{ __('messages.welcome_tutor2_bio') }}
                     </p>
 
                     <a href="{{ route('login') }}" class="w-full inline-flex justify-center items-center py-3 bg-surface-container hover:bg-secondary hover:text-white text-on-surface font-bold rounded-xl transition-all text-sm">
-                        Agendar Tutoría
+                        {{ __('messages.welcome_book_btn') }}
                     </a>
                 </div>
 
@@ -307,11 +307,11 @@
                     </div>
 
                     <p class="text-sm text-on-surface-variant leading-relaxed mb-8">
-                        "Física y análisis estadístico explicado de forma simple e interactiva. Olvídate de memorizar fórmulas confusas."
+                        {{ __('messages.welcome_tutor3_bio') }}
                     </p>
 
                     <a href="{{ route('login') }}" class="w-full inline-flex justify-center items-center py-3 bg-surface-container hover:bg-primary hover:text-white text-on-surface font-bold rounded-xl transition-all text-sm">
-                        Agendar Tutoría
+                        {{ __('messages.welcome_book_btn') }}
                     </a>
                 </div>
             </div>
@@ -327,7 +327,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                 
                 <div>
-                    <span class="text-sm font-extrabold text-secondary uppercase tracking-widest mb-3 block">Nuestras Ventajas</span>
+                    <span class="text-sm font-extrabold text-secondary uppercase tracking-widest mb-3 block">{{ __('messages.welcome_sub_benefits') }}</span>
                     <h2 class="text-4xl md:text-5xl font-black text-on-surface mb-12 tracking-tight">{{ __('messages.welcome_ben_title') }}</h2>
                     
                     <div class="space-y-12">
@@ -383,7 +383,7 @@
         <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.08)_0%,rgba(0,0,0,0)_70%)]"></div>
         
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-            <span class="text-sm font-extrabold text-secondary uppercase tracking-widest mb-3 block text-center">Testimonios</span>
+            <span class="text-sm font-extrabold text-secondary uppercase tracking-widest mb-3 block text-center">{{ __('messages.welcome_sub_testimonials') }}</span>
             <h2 class="text-4xl font-extrabold mb-20 text-center text-white tracking-tight">{{ __('messages.welcome_test_title') }}</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -450,7 +450,7 @@
                 <div class="absolute -bottom-12 -left-12 w-64 h-64 bg-secondary/20 rounded-full blur-2xl"></div>
                 
                 <div class="relative z-10">
-                    <span class="text-white/85 text-sm font-extrabold uppercase tracking-widest mb-4 block">Comunidad de Aprendizaje</span>
+                    <span class="text-white/85 text-sm font-extrabold uppercase tracking-widest mb-4 block">{{ __('messages.welcome_sub_cta') }}</span>
                     <h2 class="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">{{ __('messages.welcome_cta_title') }}</h2>
                     <p class="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
                         {{ __('messages.welcome_cta_desc') }}

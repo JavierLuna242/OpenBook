@@ -20,17 +20,17 @@ class TutoringController extends Controller
         $subjects = Subject::defaultSubjects();
 
         // Logic for Tutorings (Filter out those already paid)
-        $tutoringsQuery = Tutoring::with('user')->whereDoesntHave('bookings', function($q) {
+        $tutoringsQuery = Tutoring::with('user')->whereDoesntHave('bookings', function ($q) {
             $q->where('payment_status', 'paid');
         });
-        
+
         if ($search) {
-            $tutoringsQuery->where(function($q) use ($search) {
+            $tutoringsQuery->where(function ($q) use ($search) {
                 $q->where('subject', 'like', "%{$search}%")
-                  ->orWhere('topics', 'like', "%{$search}%")
-                  ->orWhereHas('user', function($u) use ($search) {
-                      $u->where('name', 'like', "%{$search}%");
-                  });
+                    ->orWhere('topics', 'like', "%{$search}%")
+                    ->orWhereHas('user', function ($u) use ($search) {
+                        $u->where('name', 'like', "%{$search}%");
+                    });
             });
         }
 
@@ -43,12 +43,12 @@ class TutoringController extends Controller
         // Logic for Academic Materials
         $materialsQuery = \App\Models\AcademicMaterial::with('tutor');
         if ($search) {
-            $materialsQuery->where(function($q) use ($search) {
+            $materialsQuery->where(function ($q) use ($search) {
                 $q->where('title', 'like', "%{$search}%")
-                  ->orWhere('description', 'like', "%{$search}%")
-                  ->orWhereHas('tutor', function($u) use ($search) {
-                      $u->where('name', 'like', "%{$search}%");
-                  });
+                    ->orWhere('description', 'like', "%{$search}%")
+                    ->orWhereHas('tutor', function ($u) use ($search) {
+                        $u->where('name', 'like', "%{$search}%");
+                    });
             });
         }
         $materials = $materialsQuery->latest()->paginate(6, ['*'], 'materials_page')->withQueryString();
@@ -60,7 +60,7 @@ class TutoringController extends Controller
     {
         $validated = $request->validated();
 
-        $userId = auth()->id(); 
+        $userId = auth()->id();
 
         Tutoring::create([
             'user_id' => $userId,
@@ -72,7 +72,7 @@ class TutoringController extends Controller
             'scheduled_time' => implode(', ', $validated['availability']), // For backward compatibility or display
         ]);
 
-        return redirect()->route('dashboard.tutor')->with('success', 'Oferta publicada correctamente.');
+        return redirect()->route('dashboard.tutor')->with('success', __('messages.flash_offer_published'));
     }
 
     public function create()
@@ -84,7 +84,7 @@ class TutoringController extends Controller
     public function showBook(Tutoring $tutoring)
     {
         if ($tutoring->user_id === auth()->id()) {
-            return redirect()->route('dashboard.search')->withErrors(['error' => 'No puedes agendar tu propia tutoría.']);
+            return redirect()->route('dashboard.search')->withErrors(['error' => __('messages.val_cannot_book_own_tutoring')]);
         }
         $user = auth()->user();
         return view('dashboard.student.book-tutoring', compact('tutoring', 'user'));
@@ -93,7 +93,7 @@ class TutoringController extends Controller
     public function confirmBook(Request $request, Tutoring $tutoring)
     {
         if ($tutoring->user_id === auth()->id()) {
-            return redirect()->route('dashboard.search')->withErrors(['error' => 'No puedes agendar tu propia tutoría.']);
+            return redirect()->route('dashboard.search')->withErrors(['error' => __('messages.val_cannot_book_own_tutoring')]);
         }
 
         $validated = $request->validate([
@@ -122,7 +122,7 @@ class TutoringController extends Controller
         $booking->load(['tutoring.user']);
 
         if ($booking->payment_status === 'paid') {
-            return redirect()->route('dashboard.student')->with('success', 'La sesión ya fue procesada anteriormente.');
+            return redirect()->route('dashboard.student')->with('success', __('messages.flash_tutoring_already_processed'));
         }
 
         if ($booking->student_id !== auth()->id()) {
@@ -202,6 +202,6 @@ class TutoringController extends Controller
             }
         }
 
-        return redirect()->route('dashboard.student')->with('success', 'Tutoría agendada exitosamente. Se ha enviado un correo con los detalles y el enlace de la sesión.');
+        return redirect()->route('dashboard.student')->with('success', __('messages.flash_tutoring_booked'));
     }
 }

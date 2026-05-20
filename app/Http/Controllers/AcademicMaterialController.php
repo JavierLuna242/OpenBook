@@ -38,14 +38,22 @@ class AcademicMaterialController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
             'document' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,zip,rar,txt|max:10240', // 10MB max
+        ], [
+            'title.required' => __('messages.val_material_title_required'),
+            'title.max' => __('messages.val_material_title_max'),
+            'description.max' => __('messages.val_material_description_max'),
+            'document.required' => __('messages.val_material_document_required'),
+            'document.file' => __('messages.val_material_document_file'),
+            'document.mimes' => __('messages.val_material_document_mimes'),
+            'document.max' => __('messages.val_material_document_max'),
         ]);
 
         if ($request->hasFile('document')) {
             $file = $request->file('document');
-            
+
             // Store the file in the public disk under 'academic_materials' folder
             $path = $file->store('academic_materials', 'public');
-            
+
             // Calculate size in readable format
             $bytes = $file->getSize();
             $units = ['B', 'KB', 'MB', 'GB', 'TB'];
@@ -65,10 +73,10 @@ class AcademicMaterialController extends Controller
                 'file_size' => $sizeFormatted,
             ]);
 
-            return redirect()->route('dashboard.tutor.materials')->with('success', '¡Material académico subido exitosamente!');
+            return redirect()->route('dashboard.tutor.materials')->with('success', __('messages.flash_material_uploaded'));
         }
 
-        return back()->withErrors(['document' => 'El archivo es obligatorio.']);
+        return back()->withErrors(['document' => __('messages.val_file_required')]);
     }
 
     /**
@@ -78,7 +86,7 @@ class AcademicMaterialController extends Controller
     {
         // Check if the file exists
         if (!Storage::disk('public')->exists($material->file_path)) {
-            return back()->with('error', 'El archivo no se encuentra disponible.');
+            return back()->with('error', __('messages.val_file_not_available'));
         }
 
         // Return the file for download
@@ -91,7 +99,7 @@ class AcademicMaterialController extends Controller
     public function destroy(AcademicMaterial $material)
     {
         $user = Auth::user();
-        
+
         // Ensure only the owner can delete it
         if ($material->tutor_id !== $user->id) {
             abort(403);
@@ -105,6 +113,6 @@ class AcademicMaterialController extends Controller
         // Delete from database
         $material->delete();
 
-        return redirect()->route('dashboard.tutor.materials')->with('success', '¡Material académico eliminado correctamente!');
+        return redirect()->route('dashboard.tutor.materials')->with('success', __('messages.flash_material_deleted'));
     }
 }

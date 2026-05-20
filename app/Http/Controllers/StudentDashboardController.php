@@ -17,22 +17,22 @@ class StudentDashboardController extends Controller
         if ($user->role !== 'student') {
             return redirect()->route('dashboard.tutor');
         }
-        
+
         // Fetch all tutoring offers that are available
         $availableTutorings = Tutoring::with('user')
             ->latest()
             ->get();
-        
+
         $totalTutorings = $availableTutorings->count();
         $totalTutors = $availableTutorings->pluck('user_id')->unique()->count();
-        
+
         // Booked sessions count for the student
         $myBookedSessionsCount = Booking::where('student_id', $user->id)->count();
 
         return view('dashboard.student.student', compact(
-            'user', 
-            'availableTutorings', 
-            'totalTutorings', 
+            'user',
+            'availableTutorings',
+            'totalTutorings',
             'totalTutors',
             'myBookedSessionsCount'
         ));
@@ -44,7 +44,7 @@ class StudentDashboardController extends Controller
         if ($user->role !== 'student') {
             return redirect()->route('dashboard.tutor');
         }
-        
+
         // Tutorías que tomé como alumno
         $takenTutorings = Booking::where('student_id', $user->id)
             ->whereNotNull('tutoring_id')
@@ -53,14 +53,14 @@ class StudentDashboardController extends Controller
             ->paginate(10, ['*'], 'tutorings_taken_page')->withQueryString();
 
         $totalServices = $takenTutorings->total();
-        $totalHours = $totalServices * 1.5; 
+        $totalHours = $totalServices * 1.5;
         $pendingReviews = 0;
 
         return view('dashboard.student.history', compact(
-            'user', 
+            'user',
             'takenTutorings',
-            'totalServices', 
-            'totalHours', 
+            'totalServices',
+            'totalHours',
             'pendingReviews'
         ));
     }
@@ -71,11 +71,11 @@ class StudentDashboardController extends Controller
         if ($user->role !== 'student') {
             return redirect()->route('dashboard.tutor');
         }
-        
+
         // Dynamic stats for profile focusing on tutorings
         $myBookingsCount = Booking::where('student_id', $user->id)->count();
         $recentActivity = Booking::where('student_id', $user->id)->with('tutoring')->latest()->take(3)->get();
-        
+
         return view('dashboard.student.profile', compact('user', 'myBookingsCount', 'recentActivity'));
     }
 
@@ -85,7 +85,7 @@ class StudentDashboardController extends Controller
         if ($user->role !== 'student') {
             return redirect()->route('dashboard.tutor');
         }
-        
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'program' => 'nullable|string|max:255',
@@ -107,6 +107,6 @@ class StudentDashboardController extends Controller
 
         $user->update($validated);
 
-        return back()->with('success', 'Perfil actualizado exitosamente.');
+        return back()->with('success', __('messages.flash_profile_updated'));
     }
 }
