@@ -5,7 +5,7 @@
 @endphp
 
 <nav class="fixed top-0 left-0 right-0 z-[60] bg-white/80 backdrop-blur-xl border-b border-outline-variant/15"
-    x-data="{ mobileOpen: false, userDropdownOpen: false }">
+    x-data="{ mobileOpen: false, userDropdownOpen: false, mobileLangOpen: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20">
 
@@ -37,13 +37,13 @@
                                 class="px-4 py-2 text-sm font-semibold rounded-xl transition-all {{ request()->routeIs('dashboard.tutor.post') ? 'bg-primary/5 text-primary' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container' }}">
                                 {{ __('messages.sidebar_offer') }}
                             </a>
-                            <a href="{{ route('dashboard.tutor.history') }}"
-                                class="px-4 py-2 text-sm font-semibold rounded-xl transition-all {{ request()->routeIs('dashboard.tutor.history') ? 'bg-primary/5 text-primary' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container' }}">
-                                {{ __('messages.sidebar_historial') }}
-                            </a>
                             <a href="{{ route('dashboard.tutor.materials') }}"
                                 class="px-4 py-2 text-sm font-semibold rounded-xl transition-all {{ request()->routeIs('dashboard.tutor.materials*') ? 'bg-primary/5 text-primary' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container' }}">
                                 {{ __('messages.sidebar_material') }}
+                            </a>
+                            <a href="{{ route('dashboard.tutor.history') }}"
+                                class="px-4 py-2 text-sm font-semibold rounded-xl transition-all {{ request()->routeIs('dashboard.tutor.history') ? 'bg-primary/5 text-primary' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container' }}">
+                                {{ __('messages.sidebar_historial') }}
                             </a>
                         @else
                             <!-- Student Navigation Links -->
@@ -161,8 +161,10 @@
                                 </div>
                                 <div class="overflow-hidden">
                                     <h4 class="text-sm font-bold text-on-surface truncate">{{ $user->name }}</h4>
-                                    <p class="text-[10px] text-on-surface-variant font-mono truncate">ID:
-                                        {{ $user->student_id ?? $user->id }}</p>
+                                    <p class="text-[10px] text-on-surface-variant font-mono truncate">
+                                        {{ $isTutorMode ? __('messages.nav_cedula_label') : 'ID:' }}
+                                        {{ $isTutorMode ? $user->cedula ?? $user->id : $user->student_id ?? $user->id }}
+                                    </p>
                                 </div>
                             </div>
 
@@ -218,6 +220,36 @@
                     @endif
                 @endauth
 
+                <!-- Mobile language button (separate from hamburger drawer) -->
+                <div class="relative" @click.away="mobileLangOpen = false">
+                    <button @click="mobileLangOpen = !mobileLangOpen"
+                        class="p-2.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-xl transition-all border border-outline-variant/15 flex items-center">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10" />
+                        </svg>
+                    </button>
+
+                    <div x-show="mobileLangOpen" x-transition:enter="transition ease-out duration-150"
+                        x-transition:enter-start="opacity-0 translate-y-1"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-100"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 translate-y-1"
+                        class="absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-xl border border-outline-variant/20 overflow-hidden z-50"
+                        style="display: none;">
+                        @foreach (['es' => 'Español', 'en' => 'English', 'fr' => 'Français', 'pt' => 'Português'] as $locale => $label)
+                            <form method="POST" action="{{ route('language.switch', $locale) }}">
+                                @csrf
+                                <button type="submit"
+                                    class="w-full text-left px-4 py-2 text-sm font-semibold text-on-surface hover:bg-surface-container transition-colors {{ app()->getLocale() === $locale ? 'bg-primary/5 font-bold text-primary' : '' }}">
+                                    {{ $label }}
+                                </button>
+                            </form>
+                        @endforeach
+                    </div>
+                </div>
+
                 <button @click="mobileOpen = !mobileOpen"
                     class="p-2.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-xl transition-all border border-outline-variant/15">
                     <svg class="w-6 h-6" :class="mobileOpen ? 'hidden' : 'block'" fill="none"
@@ -258,7 +290,9 @@
                 </div>
                 <div>
                     <h4 class="font-extrabold text-on-surface">{{ $user->name }}</h4>
-                    <p class="text-xs text-on-surface-variant font-mono">ID: {{ $user->student_id ?? $user->id }}</p>
+                    <p class="text-xs text-on-surface-variant font-mono">
+                        {{ $isTutorMode ? __('messages.nav_cedula_label') : 'ID:' }}
+                        {{ $isTutorMode ? $user->cedula ?? $user->id : $user->student_id ?? $user->id }}</p>
                 </div>
             </div>
 
@@ -274,13 +308,13 @@
                         class="flex items-center space-x-3 px-4 py-3 rounded-xl font-bold text-on-surface hover:bg-surface-container {{ request()->routeIs('dashboard.tutor.post') ? 'bg-primary/5 text-primary' : '' }}">
                         <span>{{ __('messages.sidebar_offer') }}</span>
                     </a>
-                    <a href="{{ route('dashboard.tutor.history') }}"
-                        class="flex items-center space-x-3 px-4 py-3 rounded-xl font-bold text-on-surface hover:bg-surface-container {{ request()->routeIs('dashboard.tutor.history') ? 'bg-primary/5 text-primary' : '' }}">
-                        <span>{{ __('messages.sidebar_historial') }}</span>
-                    </a>
                     <a href="{{ route('dashboard.tutor.materials') }}"
                         class="flex items-center space-x-3 px-4 py-3 rounded-xl font-bold text-on-surface hover:bg-surface-container {{ request()->routeIs('dashboard.tutor.materials*') ? 'bg-primary/5 text-primary' : '' }}">
                         <span>{{ __('messages.sidebar_material') }}</span>
+                    </a>
+                    <a href="{{ route('dashboard.tutor.history') }}"
+                        class="flex items-center space-x-3 px-4 py-3 rounded-xl font-bold text-on-surface hover:bg-surface-container {{ request()->routeIs('dashboard.tutor.history') ? 'bg-primary/5 text-primary' : '' }}">
+                        <span>{{ __('messages.sidebar_historial') }}</span>
                     </a>
                     <a href="{{ route('dashboard.tutor.profile') }}"
                         class="flex items-center space-x-3 px-4 py-3 rounded-xl font-bold text-on-surface hover:bg-surface-container {{ request()->routeIs('dashboard.tutor.profile') ? 'bg-primary/5 text-primary' : '' }}">
@@ -333,22 +367,7 @@
             </div>
         @endauth
 
-        <!-- Language selections inside mobile drawer -->
-        <div class="pt-6 border-t border-outline-variant/15 mt-4 space-y-2">
-            <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider block mb-2">Idioma /
-                Language</span>
-            <div class="grid grid-cols-2 gap-2">
-                @foreach (['es' => 'Español', 'en' => 'English', 'fr' => 'Français', 'pt' => 'Português'] as $locale => $label)
-                    <form method="POST" action="{{ route('language.switch', $locale) }}">
-                        @csrf
-                        <button type="submit"
-                            class="w-full py-2.5 text-center text-xs font-bold rounded-xl border {{ app()->getLocale() === $locale ? 'bg-primary/5 text-primary border-primary/20' : 'bg-surface-container-low text-on-surface-variant border-outline-variant/10 hover:bg-surface-container' }} transition-colors">
-                            {{ $label }}
-                        </button>
-                    </form>
-                @endforeach
-            </div>
-        </div>
+
     </div>
 </nav>
 <div class="h-20"></div> <!-- Spacer for fixed nav -->

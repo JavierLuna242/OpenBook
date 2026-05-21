@@ -87,6 +87,8 @@ return [
     'register_placeholder_email' => 'joao.silva@unab.edu.co',
     'register_placeholder_program' => 'Engenharia de Sistemas',
     'register_placeholder_student_id' => 'U00123456',
+    'register_cedula' => 'Cédula',
+    'register_placeholder_cedula' => '1234567890',
     'register_placeholder_password' => '••••••••',
     'register_placeholder_confirm' => '••••••••',
 
@@ -126,7 +128,9 @@ return [
     'val_program_required'  => 'O programa acadêmico é obrigatório.',
     'val_program_max'       => 'O programa não pode ter mais de 255 caracteres.',
     'val_student_id_required' => 'A matrícula é obrigatória.',
+    'val_cedula_required'     => 'A cédula é obrigatória.',
     'val_student_id_format'  => 'O ID do aluno deve estar no formato U00 seguido de 6 números.',
+    'val_cedula_format'      => 'A cédula deve conter entre 7 e 10 dígitos.',
     'val_token_required'    => 'O token de recuperação é obrigatório.',
     'val_credentials'       => 'Essas credenciais não correspondem aos nossos registros.',
     'val_user_not_found'    => 'Não encontramos um usuário com esse e-mail.',

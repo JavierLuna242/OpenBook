@@ -87,6 +87,8 @@ return [
     'register_placeholder_email' => 'john.doe@unab.edu.co',
     'register_placeholder_program' => 'Computer Science',
     'register_placeholder_student_id' => 'U00123456',
+    'register_cedula' => 'Cedula',
+    'register_placeholder_cedula' => '1234567890',
     'register_placeholder_password' => '••••••••',
     'register_placeholder_confirm' => '••••••••',
 
@@ -126,7 +128,9 @@ return [
     'val_program_required'  => 'The academic program is required.',
     'val_program_max'       => 'The program cannot exceed 255 characters.',
     'val_student_id_required' => 'The student ID is required.',
+    'val_cedula_required'     => 'The cedula is required.',
     'val_student_id_format'  => 'The student ID must be in the format U00 followed by 6 numbers.',
+    'val_cedula_format'      => 'The cedula must contain between 7 and 10 digits.',
     'val_token_required'    => 'The recovery token is required.',
     'val_credentials'       => 'These credentials do not match our records.',
     'val_user_not_found'    => 'We could not find a user with that email address.',
@@ -511,6 +515,7 @@ return [
     'footer_policies'           => 'Policies',
     'footer_faq'                => 'FAQ',
     'footer_rights'             => '© :year OpenBook. All rights reserved.',
+    'nav_cedula_label'          => 'Cedula:',
 
     // Tutor Profile
     'tutor_profile_presentation' => 'Professional Presentation',
@@ -518,6 +523,7 @@ return [
     'tutor_profile_academic'     => 'Academic Details',
     'tutor_profile_program'      => 'Program',
     'tutor_profile_student_id'   => 'Student ID',
+    'tutor_profile_cedula'       => 'Cedula',
     'tutor_profile_email'        => 'Institutional Email',
     'tutor_profile_member_since' => 'Member since',
     'tutor_profile_not_specified' => 'Not specified',

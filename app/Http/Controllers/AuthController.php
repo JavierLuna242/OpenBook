@@ -120,7 +120,7 @@ class AuthController extends Controller
             'name'       => $validated['name'],
             'email'      => $validated['email'],
             'program'    => $validated['program'],
-            'student_id' => $validated['student_id'],
+            'cedula'     => $validated['cedula'],
             'password'   => Hash::make($validated['password']),
             'role'       => 'tutor',
         ]);

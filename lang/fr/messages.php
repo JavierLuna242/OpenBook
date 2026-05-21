@@ -87,6 +87,8 @@ return [
     'register_placeholder_email' => 'jean.dupont@unab.edu.co',
     'register_placeholder_program' => 'Informatique',
     'register_placeholder_student_id' => 'U00123456',
+    'register_cedula' => 'Cédula',
+    'register_placeholder_cedula' => '1234567890',
     'register_placeholder_password' => '••••••••',
     'register_placeholder_confirm' => '••••••••',
 
@@ -126,7 +128,9 @@ return [
     'val_program_required'  => 'Le programme académique est obligatoire.',
     'val_program_max'       => 'Le programme ne peut pas dépasser 255 caractères.',
     'val_student_id_required' => 'Le numéro étudiant est obligatoire.',
+    'val_cedula_required'     => 'La cédula est obligatoire.',
     'val_student_id_format'  => 'L\'ID étudiant doit être au format U00 suivi de 6 chiffres.',
+    'val_cedula_format'      => 'La cédula doit contenir entre 7 et 10 chiffres.',
     'val_token_required'    => 'Le jeton de récupération est obligatoire.',
     'val_credentials'       => 'Ces identifiants ne correspondent pas à nos enregistrements.',
     'val_user_not_found'    => 'Nous n\'avons trouvé aucun utilisateur avec cet e-mail.',

@@ -87,6 +87,8 @@ return [
     'register_placeholder_email' => 'juan.p@unab.edu.co',
     'register_placeholder_program' => 'Ingeniería de Sistemas',
     'register_placeholder_student_id' => 'U00123456',
+    'register_cedula' => 'Cédula',
+    'register_placeholder_cedula' => '1234567890',
     'register_placeholder_password' => '••••••••',
     'register_placeholder_confirm' => '••••••••',
 
@@ -126,7 +128,9 @@ return [
     'val_program_required'  => 'El programa académico es obligatorio.',
     'val_program_max'       => 'El programa no puede tener más de 255 caracteres.',
     'val_student_id_required' => 'El ID de estudiante es obligatorio.',
+    'val_cedula_required'     => 'La cédula es obligatoria.',
     'val_student_id_format'  => 'El ID de estudiante debe tener el formato U00 seguido de 6 números.',
+    'val_cedula_format'      => 'La cédula debe contener entre 7 y 10 dígitos.',
     'val_token_required'    => 'El token de recuperación es obligatorio.',
     'val_credentials'       => 'Las credenciales proporcionadas no coinciden con nuestros registros.',
     'val_user_not_found'    => 'No encontramos un usuario con ese correo electrónico.',
@@ -511,6 +515,7 @@ return [
     'footer_policies'           => 'Políticas',
     'footer_faq'                => 'Preguntas Frecuentes',
     'footer_rights'             => '© :year OpenBook. Todos los derechos reservados.',
+    'nav_cedula_label'          => 'Cédula:',
 
     // Tutor Profile
     'tutor_profile_presentation' => 'Presentación Profesional',
@@ -518,6 +523,7 @@ return [
     'tutor_profile_academic'     => 'Detalles Académicos',
     'tutor_profile_program'      => 'Programa',
     'tutor_profile_student_id'   => 'ID Estudiante',
+    'tutor_profile_cedula'       => 'Cédula',
     'tutor_profile_email'        => 'Correo Institucional',
     'tutor_profile_member_since' => 'Miembro desde',
     'tutor_profile_not_specified' => 'No especificado',

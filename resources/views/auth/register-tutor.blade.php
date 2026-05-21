@@ -103,12 +103,11 @@
 
                     <div class="col-span-2 md:col-span-1">
                         <label
-                            class="block text-xs font-bold text-on-surface mb-2 tracking-widest uppercase text-teal-600">{{ __('messages.register_student_id') }}
-                            (U00XXXXXX)</label>
-                        <input type="text" name="student_id" value="{{ old('student_id') }}"
-                            class="w-full bg-surface-container-high border-b-2 @error('student_id') border-error @else border-transparent @enderror focus:border-teal-600 px-4 py-3 outline-none transition-all duration-300 rounded-t-lg"
-                            placeholder="{{ __('messages.register_placeholder_student_id') }}">
-                        @error('student_id')
+                            class="block text-xs font-bold text-on-surface mb-2 tracking-widest uppercase text-teal-600">{{ __('messages.register_cedula') }}</label>
+                        <input type="text" name="cedula" value="{{ old('cedula') }}"
+                            class="w-full bg-surface-container-high border-b-2 @error('cedula') border-error @else border-transparent @enderror focus:border-teal-600 px-4 py-3 outline-none transition-all duration-300 rounded-t-lg"
+                            placeholder="{{ __('messages.register_placeholder_cedula') }}">
+                        @error('cedula')
                             <p class="mt-1 text-xs text-error font-medium">{{ $message }}</p>
                         @enderror
                     </div>
